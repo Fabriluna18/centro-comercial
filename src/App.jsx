@@ -1,9 +1,11 @@
 function App() {
   return (
-    <h1 className="text-3xl font-bold">
-      Centro Comercial Test
-    </h1>
-  )
+    <div className="bg-black text-white h-screen flex items-center justify-center">
+      <h1 className="text-4xl font-bold">
+        Tailwind funcionando 🚀
+      </h1>
+    </div>
+  );
 }
 
 export default App;
