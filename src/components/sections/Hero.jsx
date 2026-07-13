@@ -15,7 +15,7 @@ export default function Hero() {
     <section className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 lg:pt-6">
       {/* ---------- MOBILE ---------- */}
       <div className="lg:hidden">
-        <h2 className="text-xl font-bold text-dark mb-1">¡Hola! 👋</h2>
+        <h2 className="text-xl font-bold text-dark mb-1">¡Hola!</h2>
         <p className="text-gray-500 text-sm mb-4">¿Qué estás buscando hoy?</p>
 
         <form
