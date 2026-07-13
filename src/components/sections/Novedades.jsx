@@ -1,24 +1,51 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Megaphone, ChevronLeft, ChevronRight } from "lucide-react";
 import { novedades } from "../../data/novedades";
 
 const AUTOPLAY_MS = 5000;
+const SWIPE_THRESHOLD = 50; // px mínimos para considerar que fue un swipe
 
 export default function Novedades() {
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % novedades.length);
   }, []);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     setCurrent((p) => (p - 1 + novedades.length) % novedades.length);
-  };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(next, AUTOPLAY_MS);
     return () => clearInterval(timer);
   }, [next]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(distance) > SWIPE_THRESHOLD) {
+      if (distance > 0) {
+        next(); // swipe hacia la izquierda → siguiente
+      } else {
+        prev(); // swipe hacia la derecha → anterior
+      }
+    }
+
+    // reset
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
 
   const item = novedades[current];
 
@@ -29,15 +56,20 @@ export default function Novedades() {
         <button className="text-sm font-medium text-primary hover:underline">Ver todas</button>
       </div>
 
-      <div className="relative bg-white border border-surface-border rounded-2xl overflow-hidden">
+      <div
+        className="relative bg-white border border-surface-border rounded-2xl overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="flex items-center gap-4 p-5 lg:p-6">
           {/* Ícono */}
           <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
             <Megaphone size={26} />
           </div>
 
-          {/* Texto — con key para que la transición se note al cambiar de slide */}
-          <div key={item.id} className="flex-1 animate-fade-in">
+          {/* Texto */}
+          <div key={item.id} className="flex-1 animate-fade-in select-none">
             <h4 className="font-bold text-dark mb-1">{item.titulo}</h4>
             <p className="text-sm text-gray-500">{item.descripcion}</p>
           </div>
@@ -49,11 +81,12 @@ export default function Novedades() {
               src={item.imagen}
               alt={item.titulo}
               className="w-full h-full object-cover animate-fade-in"
+              draggable={false}
             />
           </div>
         </div>
 
-        {/* Flechas (desktop, en hover se podrían mostrar; acá siempre visibles) */}
+        {/* Flechas (desktop) */}
         <button
           onClick={prev}
           aria-label="Anterior"
