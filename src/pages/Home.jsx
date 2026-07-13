@@ -1,10 +1,11 @@
 import Hero from "../components/sections/Hero";
+import Novedades from "../components/sections/Novedades";
 
 export default function Home() {
   return (
     <main className="pb-10">
       <Hero />
-      {/* acá van las próximas secciones: Novedades, Accesos rápidos, etc. */}
+      <Novedades />
     </main>
   );
 }
