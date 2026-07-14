@@ -2,7 +2,7 @@ export default function Footer() {
   const whatsappNumber = "5493511234567"; // reemplazar por el número real del centro comercial
 
   return (
-    <footer className="bg-white border-t border-surface-border mt-8">
+    <footer className="hidden lg:block bg-white border-t border-surface-border mt-8">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-6">
         {/* WhatsApp */}
         <div className="flex items-center gap-4 text-center lg:text-left">
