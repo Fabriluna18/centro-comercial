@@ -41,19 +41,35 @@ export default function Navbar() {
 
   return (
     <header className="bg-white border-b border-surface-border sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex items-center justify-between gap-4">
-        {/* Logo + nombre */}
+      {/* ---------- TOP BAR MOBILE ---------- */}
+      <div className="lg:hidden flex items-center justify-between px-4 py-3">
+        <button onClick={() => setMobileOpen(true)} aria-label="Abrir menú" className="text-dark">
+          <Menu size={24} />
+        </button>
+
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white overflow-hidden">
+            <img src="/logo-villa-allende.png" alt="Centro Comercial Villa Allende" className="w-6 h-6 object-contain" />
+          </div>
+          <div className="leading-none">
+            <p className="text-[10px] text-gray-500">Centro Comercial</p>
+            <p className="text-sm font-bold text-primary">Villa Allende</p>
+          </div>
+        </div>
+
+        <button aria-label="Notificaciones" className="text-dark">
+          <Bell size={22} />
+        </button>
+      </div>
+
+      {/* ---------- TOP BAR DESKTOP ---------- */}
+      <div className="hidden lg:flex max-w-7xl mx-auto px-8 py-4 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white overflow-hidden">
-            <img
-              src="/logo-villa-allende.png"
-              alt="Centro Comercial Villa Allende"
-              className="w-11 h-11 object-contain"
-            />
+            <img src="/logo-villa-allende.png" alt="Centro Comercial Villa Allende" className="w-11 h-11 object-contain" />
           </div>
 
-          <div className="hidden sm:block">
+          <div>
             <p className="text-sm font-bold tracking-wide text-dark leading-none">CENTRO COMERCIAL</p>
             <h1 className="text-2xl font-extrabold text-primary leading-tight">VILLA ALLENDE</h1>
             <span className="inline-block bg-dark text-white text-[10px] font-bold tracking-widest px-2 py-0.5 rounded mt-1">
@@ -62,8 +78,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Acciones desktop */}
-        <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-dark">
+        <div className="flex items-center gap-6 text-sm font-medium text-dark">
           <div className="relative" ref={searchRef}>
             <button
               className="flex items-center gap-2 hover:text-primary transition-colors"
@@ -100,11 +115,6 @@ export default function Navbar() {
             <User size={18} /> Mi cuenta
           </button>
         </div>
-
-        {/* Botón hamburguesa mobile */}
-        <button className="lg:hidden text-dark" onClick={() => setMobileOpen(true)} aria-label="Abrir menú">
-          <Menu size={26} />
-        </button>
       </div>
 
       {/* Nav desktop */}
@@ -135,10 +145,8 @@ export default function Navbar() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* overlay */}
         <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
 
-        {/* panel */}
         <div
           className={`absolute top-0 left-0 h-full w-72 bg-white shadow-xl p-5 flex flex-col gap-1 transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "-translate-x-full"
@@ -169,9 +177,6 @@ export default function Navbar() {
 
           <hr className="my-4 border-surface-border" />
 
-          <button className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-surface-muted">
-            <Bell size={20} /> Notificaciones
-          </button>
           <button className="flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-surface-muted">
             <User size={20} /> Mi cuenta
           </button>
