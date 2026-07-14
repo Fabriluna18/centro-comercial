@@ -1,6 +1,6 @@
 export default function DownloadAppBanner() {
   return (
-    <section className="lg:hidden max-w-[1800px] mx-auto px-4 pt-6">
+    <section className="lg:hidden max-w-[2000px] mx-auto px-4 pt-6">
       <div className="bg-primary-50 border border-primary-100 rounded-2xl p-5 flex items-center gap-4">
         <div className="flex-1">
           <h4 className="font-bold text-dark mb-1 leading-snug">

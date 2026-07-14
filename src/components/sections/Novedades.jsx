@@ -50,7 +50,7 @@ export default function Novedades() {
   const item = novedades[current];
 
   return (
-    <section className="max-w-[1800px] mx-auto px-4 lg:px-8 pt-8">
+    <section className="max-w-[2000px] mx-auto px-4 lg:px-8 pt-8">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-lg font-bold text-dark">Novedades</h3>
         <button className="text-sm font-medium text-primary hover:underline">Ver todas</button>
@@ -62,20 +62,17 @@ export default function Novedades() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="flex items-center gap-4 lg:gap-6 p-5 lg:p-8">
-          {/* Ícono */}
-          <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-            <Megaphone size={26} className="lg:w-8 lg:h-8" />
+        <div className="flex items-center gap-4 lg:gap-5 px-6 py-5 lg:px-7 lg:py-6">
+          <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+            <Megaphone size={26} />
           </div>
 
-          {/* Texto */}
           <div key={item.id} className="flex-1 animate-fade-in select-none">
-            <h4 className="font-bold text-dark text-base lg:text-xl mb-1 lg:mb-2">{item.titulo}</h4>
-            <p className="text-sm lg:text-base text-gray-500 max-w-2xl">{item.descripcion}</p>
+            <h4 className="font-bold text-dark text-base lg:text-lg mb-1">{item.titulo}</h4>
+            <p className="text-sm text-gray-500 max-w-xl">{item.descripcion}</p>
           </div>
 
-          {/* Imagen (solo desktop) */}
-          <div className="hidden lg:block w-56 h-32 xl:w-64 xl:h-36 rounded-xl overflow-hidden shrink-0">
+          <div className="hidden lg:block w-48 h-28 rounded-xl overflow-hidden shrink-0">
             <img
               key={item.id}
               src={item.imagen}
