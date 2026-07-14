@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 lg:px-8 pt-4 lg:pt-6">
+    <section className="max-w-[1800px] mx-auto px-4 lg:px-8 pt-4 lg:pt-6">
       {/* ---------- MOBILE ---------- */}
       <div className="lg:hidden">
         <h2 className="text-xl font-bold text-dark mb-1">¡Hola!</h2>
@@ -45,7 +45,7 @@ export default function Hero() {
             alt="Calle comercial Villa Allende"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/10 to-primary/5" />
         </div>
 
         {/* Badge ubicación */}
