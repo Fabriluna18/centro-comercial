@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 import Home from "../pages/Home";
 import Comercios from "../pages/Comercios";
 import ComercioDetalle from "../pages/ComercioDetalle";
@@ -23,6 +24,7 @@ export default function AppRouter() {
         <Route path="/eventos" element={<Eventos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
