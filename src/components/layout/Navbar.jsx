@@ -48,9 +48,11 @@ export default function Navbar() {
         </button>
 
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white overflow-hidden">
-            <img src="/logo-villa-allende.png" alt="Centro Comercial Villa Allende" className="w-6 h-6 object-contain" />
-          </div>
+          <img
+            src="/logo-villa-allende.png"
+            alt="Centro Comercial Villa Allende"
+            className="w-11 h-11 object-contain shrink-0"
+          />
           <div className="leading-none">
             <p className="text-[10px] text-gray-500">Centro Comercial</p>
             <p className="text-sm font-bold text-primary">Villa Allende</p>
@@ -63,11 +65,13 @@ export default function Navbar() {
       </div>
 
       {/* ---------- TOP BAR DESKTOP ---------- */}
-      <div className="hidden lg:flex max-w-[1800px] mx-auto px-8 py-4 items-center justify-between gap-4">
+      <div className="hidden lg:flex max-w-[2000px] mx-auto px-8 py-4 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white overflow-hidden">
-            <img src="/logo-villa-allende.png" alt="Centro Comercial Villa Allende" className="w-11 h-11 object-contain" />
-          </div>
+          <img
+            src="/logo-villa-allende.png"
+            alt="Centro Comercial Villa Allende"
+            className="w-16 h-16 lg:w-20 lg:h-20 object-contain shrink-0"
+          />
 
           <div>
             <p className="text-sm font-bold tracking-wide text-dark leading-none">CENTRO COMERCIAL</p>
@@ -75,6 +79,9 @@ export default function Navbar() {
             <span className="inline-block bg-dark text-white text-[10px] font-bold tracking-widest px-2 py-0.5 rounded mt-1">
               DIGITAL
             </span>
+            <p className="text-xs text-gray-500 mt-1">
+              Impulsamos el comercio local, conectamos nuestra comunidad.
+            </p>
           </div>
         </div>
 
@@ -119,7 +126,7 @@ export default function Navbar() {
 
       {/* Nav desktop */}
       <nav className="hidden lg:block border-t border-surface-border">
-        <div className="max-w-[1800px] mx-auto px-8 flex gap-2">
+        <div className="max-w-[2000px] mx-auto px-8 flex gap-2">
           {navLinks.map(({ name, path, icon: Icon }) => (
             <NavLink
               key={path}

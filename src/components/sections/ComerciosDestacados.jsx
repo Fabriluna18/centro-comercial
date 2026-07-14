@@ -6,7 +6,7 @@ export default function ComerciosDestacados() {
   const navigate = useNavigate();
 
   return (
-    <section className="max-w-[1800px] mx-auto px-4 lg:px-8 pt-8">
+    <section className="max-w-[2000px] mx-auto px-4 lg:px-8 pt-8">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-lg font-bold text-dark">Comercios destacados</h3>
         <button
