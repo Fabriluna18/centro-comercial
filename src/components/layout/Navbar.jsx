@@ -63,7 +63,7 @@ export default function Navbar() {
       </div>
 
       {/* ---------- TOP BAR DESKTOP ---------- */}
-      <div className="hidden lg:flex max-w-7xl mx-auto px-8 py-4 items-center justify-between gap-4">
+      <div className="hidden lg:flex max-w-[1800px] mx-auto px-8 py-4 items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white overflow-hidden">
             <img src="/logo-villa-allende.png" alt="Centro Comercial Villa Allende" className="w-11 h-11 object-contain" />
@@ -119,7 +119,7 @@ export default function Navbar() {
 
       {/* Nav desktop */}
       <nav className="hidden lg:block border-t border-surface-border">
-        <div className="max-w-7xl mx-auto px-8 flex gap-2">
+        <div className="max-w-[1800px] mx-auto px-8 flex gap-2">
           {navLinks.map(({ name, path, icon: Icon }) => (
             <NavLink
               key={path}
