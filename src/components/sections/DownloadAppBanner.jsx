@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 export default function DownloadAppBanner() {
+  const navigate = useNavigate();
+
   return (
     <section className="lg:hidden max-w-[2000px] mx-auto px-4 pt-6">
-      <div className="bg-primary-50 border border-primary-100 rounded-2xl p-5 flex items-center gap-4">
+      <div className="relative bg-primary-50 border border-primary-100 rounded-2xl overflow-hidden flex items-center gap-4 p-5">
         <div className="flex-1">
           <h4 className="font-bold text-dark mb-1 leading-snug">
             ¡Llevá el Centro Comercial en tu bolsillo!
@@ -9,17 +13,21 @@ export default function DownloadAppBanner() {
           <p className="text-xs text-gray-500 mb-3">
             Recibí novedades, promociones y mucho más.
           </p>
-          <button className="bg-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+          <button
+            onClick={() => navigate("/comercios")}
+            className="bg-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+          >
             Descargar app
           </button>
         </div>
 
-        {/* "Mockup" de teléfono hecho con CSS, sin necesitar imagen extra */}
-        <div className="w-20 h-36 shrink-0 rounded-2xl border-4 border-dark bg-white flex items-center justify-center shadow-sm">
+        {/* Imagen sin fondo, apoyada sobre la card */}
+        <div className="w-28 shrink-0 self-stretch flex items-end">
           <img
-            src="/logo-villa-allende.png"
-            alt="App Centro Comercial Villa Allende"
-            className="w-10 h-10 object-contain"
+            src="/download-app-phone.png"
+            alt="App Centro Comercial Villa Allende en un teléfono"
+            className="w-full h-auto object-contain"
+            draggable={false}
           />
         </div>
       </div>

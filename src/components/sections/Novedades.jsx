@@ -63,13 +63,13 @@ export default function Novedades() {
         onTouchEnd={handleTouchEnd}
       >
         <div className="flex items-center gap-4 lg:gap-5 px-6 py-5 lg:px-7 lg:py-6">
-          <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
-            <Megaphone size={26} />
+          <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+            <Megaphone size={32} />
           </div>
 
-          <div key={item.id} className="flex-1 animate-fade-in select-none">
-            <h4 className="font-bold text-dark text-base lg:text-lg mb-1">{item.titulo}</h4>
-            <p className="text-sm text-gray-500 max-w-xl">{item.descripcion}</p>
+          <div key={item.id} className="flex-1 h-[112px] lg:h-auto flex flex-col justify-center animate-fade-in select-none">
+            <h4 className="font-bold text-dark text-base lg:text-lg mb-1 line-clamp-2 lg:line-clamp-1">{item.titulo}</h4>
+            <p className="text-sm text-gray-500 max-w-xl line-clamp-3">{item.descripcion}</p>
           </div>
 
           <div className="hidden lg:block w-48 h-28 rounded-xl overflow-hidden shrink-0">
