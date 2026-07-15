@@ -70,7 +70,7 @@ export default function Comercios() {
             onClick={() => setActiveTab(tab)}
             className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
               activeTab === tab
-                ? "bg-dark text-white border-dark"
+                ? "bg-accent-pink text-white border-accent-pink"
                 : "bg-white text-gray-600 border-surface-border hover:border-gray-300"
             }`}
           >
@@ -102,6 +102,20 @@ export default function Comercios() {
           <p className="text-sm text-gray-400">Probá con otra búsqueda o revisá las categorías</p>
         </div>
       )}
+
+      {/* Card de promos y novedades */}
+        <div className="mt-8 bg-pink-50 border border-pink-100 rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <p className="font-bold text-dark text-sm mb-1">Descubrí promos y novedades</p>
+            <p className="text-xs text-gray-500">de tus comercios favoritos</p>
+          </div>
+          <button
+            onClick={() => navigate("/")}
+            className="bg-accent-pink hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-opacity"
+          >
+            Ver novedades
+          </button>
+        </div>
 
       {/* CTA WhatsApp si no encuentra */}
       <div className="mt-8 bg-white border border-surface-border rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
