@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <header className="bg-white border-b border-surface-border sticky top-0 z-50">
       {/* ---------- TOP BAR MOBILE ---------- */}
-      <div className="lg:hidden flex items-center justify-between px-4 py-3">
+      <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-surface-muted">
         <button onClick={() => setMobileOpen(true)} aria-label="Abrir menú" className="text-dark">
           <Menu size={24} />
         </button>
@@ -51,7 +51,7 @@ export default function Navbar() {
           <img
             src="/logo-villa-allende.png"
             alt="Centro Comercial Villa Allende"
-            className="w-11 h-11 object-contain shrink-0"
+            className="w-16 h-16 object-contain shrink-0"
           />
           <div className="leading-none">
             <p className="text-[10px] text-gray-500">Centro Comercial</p>
@@ -65,12 +65,12 @@ export default function Navbar() {
       </div>
 
       {/* ---------- TOP BAR DESKTOP ---------- */}
-      <div className="hidden lg:flex max-w-[2000px] mx-auto px-8 py-4 items-center justify-between gap-4">
+      <div className="hidden lg:flex max-w-[2000px] mx-auto px-8 py-4 items-center justify-between gap-4 bg-surface-muted">
         <div className="flex items-center gap-3">
           <img
             src="/logo-villa-allende.png"
             alt="Centro Comercial Villa Allende"
-            className="w-16 h-16 lg:w-20 lg:h-20 object-contain shrink-0"
+            className="w-24 h-24 object-contain shrink-0"
           />
 
           <div>
