@@ -14,6 +14,7 @@ import {
 import { comercios } from "../data/comercios";
 import InitialsAvatar from "../components/ui/InitialsAvatar";
 import StarRating from "../components/ui/StarRating";
+import BannerCarousel from "../components/ui/BannerCarousel";
 
 export default function ComercioDetalle() {
   const { id } = useParams();
@@ -47,17 +48,14 @@ export default function ComercioDetalle() {
       </button>
 
       {/* Banner */}
-      <div className="relative h-40 lg:h-56 rounded-2xl overflow-hidden mb-14 lg:mb-16">
-        <img
-          src={comercio.imagen}
-          alt={comercio.nombre}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+      <div className="relative mb-16 lg:mb-20">
+        <BannerCarousel imagenes={comercio.imagenes} nombre={comercio.nombre} />
 
-        {/* Avatar superpuesto */}
-        <div className="absolute -bottom-10 left-6 lg:left-10 ring-4 ring-white rounded-full">
-          <InitialsAvatar nombre={comercio.nombre} size={80} />
+        {/* Logo superpuesto con sombra y profundidad */}
+        <div className="absolute -bottom-12 left-6 lg:left-10">
+          <div className="ring-4 ring-white rounded-full shadow-xl">
+            <InitialsAvatar nombre={comercio.nombre} size={96} />
+          </div>
         </div>
       </div>
 
@@ -195,7 +193,7 @@ export default function ComercioDetalle() {
           {comercio.productosDestacados.map((prod, i) => (
             <div key={i} className="bg-white border border-surface-border rounded-2xl overflow-hidden">
               <div className="h-28 overflow-hidden">
-                <img src={comercio.imagen} alt={prod.nombre} className="w-full h-full object-cover" />
+                <img src={comercio.imagenes[0]} alt={prod.nombre} className="w-full h-full object-cover" />
               </div>
               <div className="p-3">
                 <p className="text-sm font-medium text-dark truncate">{prod.nombre}</p>
@@ -214,7 +212,7 @@ export default function ComercioDetalle() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="h-28 lg:h-36 rounded-2xl overflow-hidden">
-              <img src={comercio.imagen} alt={`${comercio.nombre} galería ${i + 1}`} className="w-full h-full object-cover" />
+              <img src={comercio.imagenes[0]} alt={`${comercio.nombre} galería ${i + 1}`} className="w-full h-full object-cover" />
             </div>
           ))}
         </div>

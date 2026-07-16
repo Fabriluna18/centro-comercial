@@ -8,7 +8,7 @@ const badgeStyles = {
 
 export default function ComercioCard({ comercio }) {
   const navigate = useNavigate();
-  const { id, nombre, categoria, imagen, rating, badge, whatsapp } = comercio;
+  const { id, nombre, categoria, imagenes, rating, badge, whatsapp } = comercio;
 
   const handleWhatsapp = (e) => {
     e.stopPropagation();
@@ -22,7 +22,7 @@ export default function ComercioCard({ comercio }) {
     >
       <div className="relative h-32 lg:h-40 overflow-hidden">
         <img
-          src={imagen}
+          src={imagenes[0]}
           alt={nombre}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
