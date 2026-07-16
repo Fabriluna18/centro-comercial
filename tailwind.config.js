@@ -24,7 +24,7 @@ export default {
         },
         surface: {
           DEFAULT: "#FFFFFF",
-          muted: "#F5F6F8",   // fondo gris clarito general
+          muted: "#F8F8F8",   // fondo gris clarito general
           border: "#E5E7EB",
         },
       },

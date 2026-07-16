@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { comercios } from "../data/comercios";
 import { normalizeText } from "../utils/normalize";
@@ -11,8 +11,8 @@ export default function Comercios() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [activeTab, setActiveTab] = useState("Todos");
+  const navigate = useNavigate();
 
-  // Si llegan por el buscador del navbar con ?q=, precargamos el input
   useEffect(() => {
     const q = searchParams.get("q");
     if (q) setQuery(q);
@@ -34,10 +34,10 @@ export default function Comercios() {
   };
 
   return (
-    <main className="max-w-[1600px] mx-auto px-4 lg:px-8 py-6 pb-10">
+    <main className="max-w-[1600px] mx-auto px-5 lg:px-8 pt-4 pb-12">
       {/* Buscador */}
-      <form onSubmit={handleSubmit} className="flex items-center gap-2 mb-4">
-        <div className="flex-1 flex items-center gap-2 bg-white border border-surface-border rounded-xl px-4 py-3">
+      <form onSubmit={handleSubmit} className="mb-5">
+        <div className="flex items-center gap-2 bg-white border border-gray-100 rounded-2xl px-4 py-3.5 shadow-sm">
           <Search size={18} className="text-gray-400 shrink-0" />
           <input
             type="text"
@@ -63,35 +63,38 @@ export default function Comercios() {
       </form>
 
       {/* Tabs de filtro */}
-      <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-1">
+      <div className="flex items-center gap-2.5 mb-5 overflow-x-auto pb-1 -mx-5 px-5">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
+            className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors ${
               activeTab === tab
                 ? "bg-accent-pink text-white border-accent-pink"
-                : "bg-white text-gray-600 border-surface-border hover:border-gray-300"
+                : "bg-white text-gray-600 border-gray-100 hover:border-gray-300"
             }`}
           >
             {tab}
           </button>
         ))}
+      </div>
 
-        <button className="shrink-0 ml-auto flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
-          <SlidersHorizontal size={14} />
-          Filtrar
+      {/* Título de sección + contador */}
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h2 className="text-lg font-bold text-dark">Comercios destacados</h2>
+          <p className="text-xs text-gray-400 mt-0.5">
+            {resultados.length} {resultados.length === 1 ? "resultado encontrado" : "resultados encontrados"}
+          </p>
+        </div>
+        <button className="flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+          Ver todos
         </button>
       </div>
 
-      {/* Contador de resultados */}
-      <p className="text-sm text-gray-500 mb-4">
-        {resultados.length} {resultados.length === 1 ? "resultado encontrado" : "resultados encontrados"}
-      </p>
-
       {/* Resultados */}
       {resultados.length > 0 ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {resultados.map((comercio) => (
             <ComercioListItem key={comercio.id} comercio={comercio} />
           ))}
@@ -103,31 +106,31 @@ export default function Comercios() {
         </div>
       )}
 
-      {/* Card de promos y novedades */}
-        <div className="mt-8 bg-pink-50 border border-pink-100 rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <p className="font-bold text-dark text-sm mb-1">Descubrí promos y novedades</p>
-            <p className="text-xs text-gray-500">de tus comercios favoritos</p>
-          </div>
-          <button
-            onClick={() => navigate("/")}
-            className="bg-accent-pink hover:opacity-90 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-opacity"
-          >
-            Ver novedades
-          </button>
-        </div>
-
-      {/* CTA WhatsApp si no encuentra */}
-      <div className="mt-8 bg-white border border-surface-border rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
+      {/* Card de promos */}
+      <div className="mt-8 bg-gradient-to-br from-pink-50 to-pink-100/60 border border-pink-100 rounded-3xl p-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
         <div>
-          <p className="font-bold text-dark text-sm mb-1">¿No encontrás lo que buscás?</p>
-          <p className="text-xs text-gray-500">Escribinos por WhatsApp y te ayudamos</p>
+          <p className="font-bold text-dark text-base mb-1">Descubrí promos y novedades</p>
+          <p className="text-sm text-gray-500">de tus comercios favoritos</p>
+        </div>
+        <button
+          onClick={() => navigate("/")}
+          className="bg-accent-pink hover:opacity-90 text-white text-sm font-semibold px-6 py-3 rounded-xl shadow-sm transition-opacity"
+        >
+          Ver novedades
+        </button>
+      </div>
+
+      {/* Card de WhatsApp */}
+      <div className="mt-4 bg-gradient-to-br from-green-50 to-green-100/60 border border-green-100 rounded-3xl p-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
+        <div>
+          <p className="font-bold text-dark text-base mb-1">¿No encontrás lo que buscás?</p>
+          <p className="text-sm text-gray-500">Escribinos por WhatsApp y te ayudamos</p>
         </div>
         <a
           href="https://wa.me/5493511234567"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+          className="bg-green-500 hover:bg-green-600 text-white text-sm font-semibold px-6 py-3 rounded-xl shadow-sm transition-colors"
         >
           Chatear
         </a>
