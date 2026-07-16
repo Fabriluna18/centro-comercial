@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal, Gift } from "lucide-react";
 import { comercios } from "../data/comercios";
 import { normalizeText } from "../utils/normalize";
 import ComercioListItem from "../components/ui/ComercioListItem";
@@ -34,7 +34,7 @@ export default function Comercios() {
   };
 
   return (
-    <main className="max-w-[1600px] mx-auto px-5 lg:px-8 pt-4 pb-12">
+    <main className="max-w-[2000px] mx-auto px-5 lg:px-8 pt-4 pb-12">
       {/* Buscador */}
       <form onSubmit={handleSubmit} className="mb-5">
         <div className="flex items-center gap-2 bg-white border border-gray-100 rounded-2xl px-4 py-3.5 shadow-sm">
@@ -108,9 +108,14 @@ export default function Comercios() {
 
       {/* Card de promos */}
       <div className="mt-8 bg-gradient-to-br from-pink-50 to-pink-100/60 border border-pink-100 rounded-3xl p-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
-        <div>
-          <p className="font-bold text-dark text-base mb-1">Descubrí promos y novedades</p>
-          <p className="text-sm text-gray-500">de tus comercios favoritos</p>
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-accent-pink/10 flex items-center justify-center shrink-0">
+            <Gift size={24} className="text-accent-pink" />
+          </div>
+          <div>
+            <p className="font-bold text-dark text-base mb-1">Descubrí promos y novedades</p>
+            <p className="text-sm text-gray-500">de tus comercios favoritos</p>
+          </div>
         </div>
         <button
           onClick={() => navigate("/")}
@@ -122,9 +127,16 @@ export default function Comercios() {
 
       {/* Card de WhatsApp */}
       <div className="mt-4 bg-gradient-to-br from-green-50 to-green-100/60 border border-green-100 rounded-3xl p-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
-        <div>
-          <p className="font-bold text-dark text-base mb-1">¿No encontrás lo que buscás?</p>
-          <p className="text-sm text-gray-500">Escribinos por WhatsApp y te ayudamos</p>
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-green-500/10 flex items-center justify-center shrink-0">
+            <svg viewBox="0 0 24 24" fill="#22C55E" className="w-6 h-6">
+              <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33C8.51 21.53 10.2 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.3c-.24.67-1.19 1.24-1.94 1.4-.52.11-1.2.2-3.48-.75-2.92-1.21-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.02-2.42.27-.29.59-.36.79-.36h.57c.18 0 .43-.02.66.5.24.53.82 1.87.89 2 .07.13.12.29.02.47-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.13-.28.28-.13.55.16.28.7 1.15 1.5 1.86 1.03.92 1.9 1.21 2.18 1.35.28.13.44.11.6-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.24.09 1.53.72 1.79.85.26.13.43.19.5.3.06.11.06.65-.18 1.31z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-bold text-dark text-base mb-1">¿No encontrás lo que buscás?</p>
+            <p className="text-sm text-gray-500">Escribinos por WhatsApp y te ayudamos</p>
+          </div>
         </div>
         <a
           href="https://wa.me/5493511234567"

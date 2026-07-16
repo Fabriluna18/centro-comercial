@@ -52,6 +52,9 @@ export default function Navbar() {
           <div className="leading-none">
             <p className="text-[10px] text-gray-500">Centro Comercial</p>
             <p className="text-sm font-bold text-primary">Villa Allende</p>
+            <span className="inline-block bg-dark text-white text-[8px] font-bold tracking-widest px-1.5 py-[1px] rounded mt-0.5">
+              DIGITAL
+            </span>
           </div>
         </div>
 

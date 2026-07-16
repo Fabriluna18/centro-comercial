@@ -4,7 +4,7 @@ import StarRating from "./StarRating";
 
 export default function ComercioListItem({ comercio }) {
   const navigate = useNavigate();
-  const { id, nombre, categoria, direccion, imagen, rating } = comercio;
+  const { id, nombre, categoria, direccion, imagenes, rating } = comercio;
 
   return (
     <button
@@ -12,7 +12,7 @@ export default function ComercioListItem({ comercio }) {
       className="w-full flex items-center gap-4 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md transition-shadow duration-200 text-left"
     >
       <div className="w-16 h-16 rounded-full overflow-hidden shrink-0 border border-gray-100">
-        <img src={imagen} alt={nombre} className="w-full h-full object-cover" />
+        <img src={imagenes[0]} alt={nombre} className="w-full h-full object-cover" />
       </div>
 
       <div className="flex-1 min-w-0">
