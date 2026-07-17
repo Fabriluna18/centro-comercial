@@ -2,7 +2,7 @@ import { beneficios } from "../../data/beneficios";
 
 export default function BeneficiosLocal() {
   return (
-    <section className="max-w-[2000px] mx-auto px-4 lg:px-8 pt-8">
+    <section className=" px-4 lg:px-8 pt-8">
       <h3 className="text-lg lg:text-2xl font-bold text-dark mb-4 lg:mb-5">Beneficios de comprar local</h3>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">

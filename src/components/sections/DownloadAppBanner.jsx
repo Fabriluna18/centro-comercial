@@ -4,7 +4,7 @@ export default function DownloadAppBanner() {
   const navigate = useNavigate();
 
   return (
-    <section className="lg:hidden max-w-[2000px] mx-auto px-4 pt-6">
+    <section className="lg:hidden  px-4 pt-6">
       <div className="relative bg-primary-50 border border-primary-100 rounded-2xl overflow-hidden flex items-center gap-4 p-5">
         <div className="flex-1">
           <h4 className="font-bold text-dark mb-1 leading-snug">

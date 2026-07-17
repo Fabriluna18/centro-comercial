@@ -69,7 +69,7 @@ export default function Navbar() {
       </div>
 
       {/* ---------- TOP BAR DESKTOP ---------- */}
-      <div className="hidden lg:flex max-w-[2000px] mx-auto px-8 py-4 items-center justify-between gap-4 bg-surface-muted">
+      <div className="hidden lg:flex  px-8 py-4 items-center justify-between gap-4 bg-surface-muted">
         <div className="flex items-center gap-3">
           <img
             src="/logo-villa-allende.png"
@@ -130,7 +130,7 @@ export default function Navbar() {
 
       {/* Nav desktop */}
       <nav className="hidden lg:block border-t border-surface-border">
-        <div className="max-w-[2000px] mx-auto px-8 flex gap-2">
+        <div className=" px-8 flex gap-2">
           {navLinks.map(({ name, path, icon: Icon }) => (
             <NavLink
               key={path}
