@@ -24,7 +24,7 @@ export default {
         },
         surface: {
           DEFAULT: "#FFFFFF",
-          muted: "#F5F6F8",   // fondo gris clarito general
+          muted: "#F8F8F8",   // fondo gris clarito general
           border: "#E5E7EB",
         },
       },
@@ -36,7 +36,7 @@ export default {
         "2xl": "1.25rem",
       },
       backgroundImage: {
-        "gradient-brand": "linear-gradient(90deg, #6D28D9 0%, #EC4899 50%, #1E56E0 100%)",
+        "gradient-brand": "linear-gradient(135deg, #4C1D95 0%, #7C3AED 30%, #DB2777 65%, #EC4899 100%)",
       },
       keyframes: {
         "fade-in": {
