@@ -5,7 +5,7 @@ export default function BannerLocal() {
   const navigate = useNavigate();
 
   return (
-    <section className="max-w-[2000px] mx-auto px-4 lg:px-8 py-8">
+    <section className=" px-4 lg:px-8 py-8">
       <div className="relative overflow-hidden rounded-3xl min-h-[260px] lg:h-[290px] shadow-2xl">
         {/* Fondo */}
         <div className="absolute inset-0 bg-[linear-gradient(100deg,#2563EB_0%,#5B3DF5_45%,#9333EA_70%,#EC4899_100%)]" />

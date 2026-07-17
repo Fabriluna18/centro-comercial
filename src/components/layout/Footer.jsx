@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="hidden lg:block bg-white border-t border-surface-border mt-8">
-      <div className="max-w-[2000px] mx-auto px-4 lg:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className=" px-4 lg:px-8 py-6 flex flex-col lg:flex-row items-center justify-between gap-6">
         {/* WhatsApp */}
         <div className="flex items-center gap-4 text-center lg:text-left">
           <div className="w-11 h-11 rounded-full bg-green-500 flex items-center justify-center shrink-0">

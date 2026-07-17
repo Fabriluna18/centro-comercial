@@ -12,7 +12,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="max-w-[2000px] mx-auto px-4 lg:px-8 pt-4 lg:pt-6">
+    <section className=" px-4 lg:px-8 pt-4 lg:pt-6">
       {/* ---------- MOBILE ---------- */}
       <div className="lg:hidden">
         <h2 className="text-xl font-bold text-dark mb-1">¡Hola!</h2>

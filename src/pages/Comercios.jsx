@@ -34,7 +34,7 @@ export default function Comercios() {
   };
 
   return (
-    <main className="max-w-[2000px] mx-auto px-5 lg:px-8 pt-4 pb-12">
+    <main className=" px-5 lg:px-8 pt-4">
       {/* Buscador */}
       <form onSubmit={handleSubmit} className="mb-5">
         <div className="flex items-center gap-2 bg-white border border-gray-100 rounded-2xl px-4 py-3.5 shadow-sm">
